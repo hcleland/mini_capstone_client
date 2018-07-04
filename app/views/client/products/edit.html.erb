@@ -1,0 +1,23 @@
+I am the edit page
+
+<%= form_tag "/client/products/#{@product['id']}", method: :patch do %>
+  <div>
+    Name: <input type="text" name="input_name" value="<%= @product['name'] %>">
+  </div>
+  <div>
+    Price: <input type="text" name="input_price" value="<%= @product['price'] %>">
+  </div>
+  <div>
+    Image Url: <input type="text" name="input_image_url" value="<%= @product['image_url'] %>" />
+  </div>
+  <div>
+    Description: <input type="text" name="input_description" value="<%= @product['description'] %> " />
+  </div>
+  <input type="submit" value="Edit existing product">
+<% end %>
+
+<%= form_tag "/client/products/#{@product['id']}", method: :delete do %>
+  <div>
+  <input type="submit" value="Delete a product">
+  </div>
+<% end %>

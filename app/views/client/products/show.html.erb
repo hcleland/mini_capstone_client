@@ -1,0 +1,9 @@
+<p>This is showing a particular product...</p>
+
+<p>id: <%= @product['id'] %></p>
+<p>name: <%= @product['name'] %></p>
+<p>price: <%= @product['price'] %></p>
+<p>image_url: <%= @product['image_url'] %></p>
+<p>description: <%= @product['description'] %></p>
+
+<p><a href="/client/products/<%= @product['id'] %>/edit">Edit or delete this recipe</a></p>

@@ -1,0 +1,10 @@
+<p>hello</p>
+
+<% @products.each do |product| %>
+  <p>name: <a href="/client/products/<%= product['id'] %>"><%= product['name'] %></a></p>
+  <p>id: <%= product['id'] %></p>
+  <p>price: <%= product['price'] %></p>
+  <p>image_url: <%= product['image_url'] %></p>
+  <p>description: <%= product['description'] %></p>
+  <hr>
+<% end %>
