@@ -1,0 +1,10 @@
+Here is your shopping cart
+
+<% @carted_products.each do |carted_product| %>
+  <p>id: <%= carted_product['id'] %></p>
+  <p>quantity: <%= carted_product['quantity'] %></p>
+  <p>name: <%= carted_product['product']['name'] %></p>
+  <p>price: <%= carted_product['product']['price'] %></p>
+  <img src="<%= carted_product['product']['images'][0]['url'] %>">
+  <hr>
+<% end %>

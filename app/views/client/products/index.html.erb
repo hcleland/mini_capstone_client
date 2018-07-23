@@ -1,10 +1,19 @@
-<p>hello</p>
+<%= form_tag "/client/products", method: :get do %>
+  <input type="text" name="client_search_name" placeholder="search for an item here">
+  <input type="text" name="client_sort_by" placeholder="what would you like to sort by?">
+  <input type="submit" value="Search for an item here">
+<% end %>
 
 <% @products.each do |product| %>
-  <p>name: <a href="/client/products/<%= product['id'] %>"><%= product['name'] %></a></p>
-  <p>id: <%= product['id'] %></p>
-  <p>price: <%= product['price'] %></p>
-  <p>image_url: <%= product['image_url'] %></p>
-  <p>description: <%= product['description'] %></p>
-  <hr>
+  <h2><a href="/client/products/<%= product["id"] %>"><%= product["name"] %></a></h2>
+  <h3><%= product["price"] %></h3>
+  <% if product["formatted"]["discounted"] %>
+    <h4 style="color: red;">Price: <%= product["price"] %></h4>
+    <h1>Discount Item</h1>
+  <% else %>
+    <h4>Price: <%= product["price"] %></h4>
+    <h1>Everyday Value!</h1>
+  <% end %>
+  <h4><%= product["description"] %></h4>
+
 <% end %>

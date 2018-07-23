@@ -1,9 +1,21 @@
 <p>This is showing a particular product...</p>
 
-<p>id: <%= @product['id'] %></p>
-<p>name: <%= @product['name'] %></p>
-<p>price: <%= @product['price'] %></p>
-<p>image_url: <%= @product['image_url'] %></p>
-<p>description: <%= @product['description'] %></p>
+<h2><%= @product["name"] %></h2>
 
-<p><a href="/client/products/<%= @product['id'] %>/edit">Edit or delete this recipe</a></p>
+
+<h4>Tax: <%= @product["formatted"]["tax"] %></h4>
+<h4>Total: <%= @product["formatted"]["total"] %></h4>
+<h4>Description: <%= @product["description"] %></h4>
+<% @product["images"].each do |image| %>
+    <img src="<%= image['url'] %>" alt="">
+  <% end %>
+
+<a href="/client/products/<%= @product['id'] %>/edit">Edit</a>
+<a href="/client/products/<%= @product['id'] %>" data-method="delete">Delete</a>
+
+
+<%= form_tag "/client/orders", method: :post do %>
+  <p>product_id:<input type="text" name="product_id"></p>
+  <p>quantity:<input type="text" name="quantity"></p>
+  <input type="submit" value="Place your order here">
+<% end %>
